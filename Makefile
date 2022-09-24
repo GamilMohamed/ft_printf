@@ -6,7 +6,7 @@
 #    By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 20:15:20 by apuchill          #+#    #+#              #
-#    Updated: 2022/09/24 01:55:10 by mohazerr         ###   ########.fr        #
+#    Updated: 2022/09/24 03:05:12 by mohazerr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,9 @@ SRCS 		= 	$(DIR_SRCS)/ft_printf.c \
 $(DIR_SRCS)/ft_ptf_putchar.c \
 $(DIR_SRCS)/ft_ptf_putnbr.c \
 $(DIR_SRCS)/ft_ptf_putstr.c \
-$(DIR_SRCS)/ft_ptf_strlen.c \
 $(DIR_SRCS)/ft_ptf_uiputnbr.c \
 $(DIR_SRCS)/ft_ptf_hex_putnbr.c \
 $(DIR_SRCS)/ft_ptf_getadress.c \
-$(DIR_SRCS)/ft_utils.c \
 
 OBJS		=	$(subst $(DIR_SRCS), $(DIR_OBJS), $(SRCS:.c=.o))
 SOURCES_PREFIXED = $(addprefix $(DIR_SRCS), $(SRCS))
