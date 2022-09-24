@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_ptf_getadress.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 15:50:04 by mohazerr          #+#    #+#             */
-/*   Updated: 2022/09/23 17:50:49 by mohazerr         ###   ########.fr       */
+/*   Created: 2022/09/23 19:27:27 by mohazerr          #+#    #+#             */
+/*   Updated: 2022/09/24 02:48:19 by mohazerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_ptf_putstr(char const *s)
+int	ft_ptf_getadress(unsigned long int n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while ((char)s[i])
+	len = 0;
+	if (n >= 16)
 	{
-		ft_ptf_putchar(s[i]);
-		i++;
+		len += ft_ptf_getadress(n / 16);
+		len += ft_ptf_getadress(n % 16);
 	}
-	return (i);
+	if (n < 16)
+	{
+		if (n < 10)
+			len += ft_ptf_putchar(n + 48);
+		else
+			len += ft_ptf_putchar(n + 87);
+	}
+	return (len);
 }

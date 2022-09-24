@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_ptf_putstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:04:19 by mohazerr          #+#    #+#             */
-/*   Updated: 2022/09/23 19:01:12 by mohazerr         ###   ########.fr       */
+/*   Created: 2022/09/23 15:50:04 by mohazerr          #+#    #+#             */
+/*   Updated: 2022/09/24 02:46:28 by mohazerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_ptf_putstr(char *s)
 {
-	int		i;
-	int		total;
-	char	*s;
-	va_list	args;
+	int	i;
 
-	s = (char *)format;
-	total = 0;
 	i = 0;
-	va_start(args, format);
-	while (s[i])
-	{
-		if (s[i] != '%')
-		{
-			total += ft_ptf_putchar(s[i++]);
-			continue ;
-		}
-		if (s[++i])
-			total += ft_showarg(s[i], &args);
-		i++;
-	}
-	va_end(args);
-	return (total);
+	if (!s)
+		s = "(null)";
+	while ((char)s[i])
+		ft_ptf_putchar(s[i++]);
+	return (i);
 }

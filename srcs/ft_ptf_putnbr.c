@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptf_strlen.c                                    :+:      :+:    :+:   */
+/*   ft_ptf_putnbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 16:37:16 by mohazerr          #+#    #+#             */
-/*   Updated: 2022/09/23 16:39:31 by mohazerr         ###   ########.fr       */
+/*   Created: 2022/09/23 15:50:04 by mohazerr          #+#    #+#             */
+/*   Updated: 2022/09/23 19:00:30 by mohazerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_ptf_strlen(char const *s)
+int	ft_ptf_putnbr(int n, int *count)
 {
-	int	i;
+	long int	nbr;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	nbr = n;
+	if (n < 0)
+	{
+		nbr *= -1;
+		*count = 1;
+		ft_ptf_putchar('-');
+	}
+	if (nbr > 9)
+		ft_ptf_putnbr((nbr / 10), count);
+	ft_ptf_putchar((nbr % 10) + '0');
+	return (*count += 1);
 }
