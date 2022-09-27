@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 15:46:05 by mohazerr          #+#    #+#             */
-/*   Updated: 2022/09/24 02:42:29 by mohazerr         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:00:22 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int		ft_ptf_putchar(char c);
 int		ft_ptf_putnbr(int n, int *count);
 int		ft_ptf_putstr(char *s);
 int		ft_ptf_uiputnbr(unsigned int n, int *count);
-int		ft_ptf_hex_putnbr(unsigned int nbr, char x, int *count);
-int		ft_ptf_getadress(unsigned long int n);
+int		ft_ptf_puthex(unsigned long int nbr, char x, int *count);
 
 int		ft_showarg(char c, va_list *list);
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohazerr <mohazerr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:04:19 by mohazerr          #+#    #+#             */
-/*   Updated: 2022/09/24 03:04:19 by mohazerr         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:00:15 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_showarg(char c, va_list *args)
 {
@@ -27,12 +27,11 @@ int	ft_showarg(char c, va_list *args)
 		ret = ft_ptf_uiputnbr((U_INT)va_arg(*args, U_INT), &ret);
 	else if (c == '%')
 		ret = ft_ptf_putchar('%');
-	else if (c == 'x' || c == 'X')
-		ret = ft_ptf_hex_putnbr((U_INT)va_arg(*args, U_INT), c, &ret);
-	else if (c == 'p')
+	else if (c == 'x' || c == 'X' || c == 'p')
 	{
-		ret = ft_ptf_putstr("0x");
-		ret += ft_ptf_getadress((long U_INT)va_arg(*args, long U_INT));
+		if (c == 'p')
+			ret += ft_ptf_putstr("0x");
+		ret = ft_ptf_puthex((long U_INT)va_arg(*args, long U_INT), c, &ret);
 	}
 	else
 		ret = ft_ptf_putchar(c);
